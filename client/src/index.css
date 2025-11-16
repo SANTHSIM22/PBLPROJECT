@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 min-h-screen bg-white text-brown-800;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 cursor-pointer inline-block border-2;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-br from-brown-600 to-brown-500 text-white border-brown-600 hover:from-brown-500 hover:to-brown-600 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-brown-600 border-brown-600 hover:bg-brown-600 hover:text-white hover:-translate-y-0.5 hover:shadow-md;
+  }
+}
