@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import api from "../utils/axios";
 
 const ArtisanDashboard = () => {
   const { user } = useAuth();
@@ -26,20 +26,10 @@ const ArtisanDashboard = () => {
       const token = localStorage.getItem("token");
 
       // Fetch products
-      const productsResponse = await axios.get(
-        "http://localhost:5000/api/products/my/products",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const productsResponse = await api.get("/products/my/products");
 
       // Fetch orders
-      const ordersResponse = await axios.get(
-        "http://localhost:5000/api/orders/artisan",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const ordersResponse = await api.get("/orders/artisan");
 
       const productsData =
         productsResponse.data.data || productsResponse.data || [];
