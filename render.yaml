@@ -9,7 +9,7 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-    
+
   # Frontend Static Site
   - type: web
     name: pblproject-frontend

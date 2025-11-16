@@ -45,11 +45,13 @@ const authLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-// CORS Configuration
+// CORS Configuration - Allow all origins
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || "http://localhost:5173",
+  origin: true, // Allow all origins
   credentials: true,
   optionsSuccessStatus: 200,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 // Middleware
